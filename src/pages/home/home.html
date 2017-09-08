@@ -1,0 +1,143 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Ionic Select with Searchbar</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-list-header>
+            Simple Select
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port1"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            With preselected value
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port2"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            With Search
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port3"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            With Async Search (AJAX)
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port4"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [canSearch]="true"
+                searchPlaceholder="Enter 3 or more characters, e.g. &quot;san&quot;"
+                (onSearch)="searchPorts($event)"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            With a custom template for items
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port5"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [itemTemplate]="portTemplate"
+                [items]="ports"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Multiple selection
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port6"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [canSearch]="true"
+                [multiple]="true"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-list-header>
+            With "Clear" button
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port7"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                (onChange)="portChange($event)"
+                [canReset]="true">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
+    <form [formGroup]="form">
+        <ion-list>
+            <ion-list-header>
+                Using together with Angular 2 Validators
+            </ion-list-header>
+            <ion-item>
+                <select-searchable
+                    formControlName="port8"
+                    title="Port"
+                    itemValueField="id"
+                    itemTextField="name"
+                    [items]="ports"
+                    [canSearch]="true"
+                    (onChange)="portChange($event)">
+                </select-searchable>
+                <button ion-button item-right (click)="reset()" [disabled]="!form.valid">Reset</button>
+            </ion-item>
+            <ion-item>
+                <p>Is valid: {{form.valid}}</p>
+            </ion-item>
+        </ion-list>
+    </form>
+</ion-content>

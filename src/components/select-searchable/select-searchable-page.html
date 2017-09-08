@@ -1,0 +1,50 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{selectComponent.title}}</ion-title>
+    </ion-navbar>
+    <ion-toolbar *ngIf="selectComponent.canSearch">
+        <ion-searchbar
+            #searchbarComponent
+            [(ngModel)]="selectComponent.filterText"
+            (ionInput)="filterItems()"
+            [placeholder]="selectComponent.searchPlaceholder || 'Search'">
+        </ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <div class="select-searchable-spinner" *ngIf="selectComponent.isSearching">
+        <div class="select-searchable-spinner-background"></div>
+        <ion-spinner></ion-spinner>
+    </div>
+    <ion-list no-margin *ngIf="filteredItems.length">
+        <button ion-item detail-none *ngFor="let item of filteredItems" (click)="select(item)">
+            <ion-icon
+                [name]="isItemSelected(item) ? 'checkmark-circle' : 'radio-button-off'"
+                [color]="isItemSelected(item) ? 'primary' : 'daek'"
+                item-left>
+            </ion-icon>
+            <h2>{{selectComponent.formatItem(item)}}</h2>
+        </button>
+    </ion-list>
+    <div *ngIf="!filteredItems.length" margin>No items found.</div>
+</ion-content>
+<ion-footer *ngIf="selectComponent.canReset || selectComponent.multiple">
+    <ion-toolbar padding>
+        <ion-row>
+            <ion-col no-padding *ngIf="selectComponent.canReset"
+                [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? '' : null"
+                [attr.col-12]="selectComponent.canReset && !selectComponent.multiple ? '' : null">
+                <button ion-button full no-margin (click)="reset()" [disabled]="!selectedItems.length">
+                    Clear
+                </button>
+            </ion-col>
+            <ion-col no-padding *ngIf="selectComponent.multiple"
+                [attr.col-6]="selectComponent.canReset && selectComponent.multiple ? '' : null"
+                [attr.col-12]="!selectComponent.canReset && selectComponent.multiple ? '' : null">
+                <button ion-button full no-margin (click)="ok()">
+                    OK
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+</ion-footer>
