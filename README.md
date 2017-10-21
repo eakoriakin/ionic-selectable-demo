@@ -78,6 +78,9 @@ TypeScript:
         }
     }
 
+### Using it with Angular Forms
+SelectSearchable component is fully compatible with [Angular 2 Forms](https://angular.io/docs/ts/latest/guide/forms.html) and can be used with both `ngModel` or `FormControl`.
+
 ## Development
 1. Install dependencies.  
 `npm install`  
