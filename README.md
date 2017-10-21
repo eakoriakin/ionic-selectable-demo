@@ -1,9 +1,9 @@
 # Ionic Select with Searchbar
 * [Description](#description)
 * [Demo](#demo)
+* [Usage](#usage)
   * [Adding it to your project](adding-it-to-your-project)
   * [Using it with Angular Forms](using-it-with-angular-forms)
-* [Usage](#usage)
 * [Development](#development)
 
 ## Description
