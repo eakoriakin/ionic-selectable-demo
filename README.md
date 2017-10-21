@@ -24,13 +24,15 @@ Here is a [Plunker demo](http://plnkr.co/edit/YzCBKS?p=preview) and below are so
 1. Copy files from `src/components/select-searchable/` folder to your project.
 2. Add `SelectSearchableModule` module to imports array of your app module.
 
+
     import { SelectSearchableModule } from '../components/select-searchable/select-searchable-module';
 
     @NgModule({
         imports: [ SelectSearchableModule ],
     })
     export class AppModule { }
-    
+
+
 3. Add it to a page.
 
 HTML:
