@@ -10,7 +10,7 @@
   * [itemValueField](#itemvaluefield)
   * [itemTextField](#itemtextfield)
   * [canSearch](#cansearch)
-  * [canReset](#canresest)
+  * [canReset](#canreset)
 * [Development](#development)
 
 ## Description
