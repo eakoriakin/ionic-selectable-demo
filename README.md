@@ -5,6 +5,10 @@
   * [Adding it to your project](#adding-it-to-your-project)
   * [Using it with Angular Forms](#using-it-with-angular-forms)
 * [Parameters](#parameters)
+  * [items](#items)
+  * [isSearching](#issearching)
+  * [itemValueField](#itemvaluefield)
+  * [itemTextField](#itemtextfield)
 * [Development](#development)
 
 ## Description
