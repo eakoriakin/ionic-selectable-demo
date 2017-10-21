@@ -100,68 +100,68 @@ SelectSearchable component is fully compatible with [Angular 2 Forms](https://an
 
 ## Fields
 
-### items
+## items
 A list of items.
 
-#### Type
+### Type
 `Array`  
 
-#### Default value
+### Default value
 `[]`
 
-### itemTemplate
+## itemTemplate
 A function used to create a text for each item which will be displayed in the list.
 
-#### Type
+### Type
 `Function`  
 
-#### Default value
+### Default value
 `null`
 
-### isSearching
+## isSearching
 Use it to show or hide loading spinner for AJAX search.
 
-#### Type
+### Type
 `boolean`  
-
-#### Default value
-`false`
-
-### itemValueField
-The name of item field which will be used as a unique identifier of the item. The name can be a property, e.g, `id`.  
-
-#### Type
-`String`  
-
-#### Default value
-`null`
-
-### itemTextField
-The name of item field which will be displayed in the list.  
-The field is relevant only when `items` is an array of objects.
-
-#### Type
-`String`  
-
-#### Default value
-`null`
-
-### canSearch
-Determines whether to show Searchbar.
-
-#### Type
-`Boolean`
 
 ### Default value
 `false`
 
-### canReset
-Determines whether to show Clear button which clears a value.
+## itemValueField
+The name of item field which will be used as a unique identifier of the item. The name can be a property, e.g, `id`.  
 
-#### Type
+### Type
+`String`  
+
+### Default value
+`null`
+
+## itemTextField
+The name of item field which will be displayed in the list.  
+The field is relevant only when `items` is an array of objects.
+
+### Type
+`String`  
+
+### Default value
+`null`
+
+## canSearch
+Determines whether to show Searchbar.
+
+### Type
 `Boolean`
 
-#### Default value
+## Default value
+`false`
+
+## canReset
+Determines whether to show Clear button which clears a value.
+
+### Type
+`Boolean`
+
+### Default value
 `false`
 
 ## multiple
@@ -176,34 +176,34 @@ Determines whether multiple items can be selected.
 ### title
 A title.
 
-#### Type
+### Type
 `String`  
 
-#### Default value
+### Default value
 `null`
 
-### searchPlaceholder
+## searchPlaceholder
 A placeholder for Searchbar.
 
-#### Type
+### Type
 `String`  
 
-#### Default value
+### Default value
 `null`
 
 ## Events
 
-### onChange
+## onChange
 Fires when the value is changed by the user.
 
-#### Parameters
+### Parameters
 **event** `{ component: SelectSearchable, value: any }`  
 An object containing a reference to the component and a selected value.
 
-### onSearch
+## onSearch
 Fires when the user is typing in Searchbar.
 
-#### Parameters
+### Parameters
 **event** `{ component: SelectSearchable, text: String }`  
 An object containing a reference to the component and typed text.
 
