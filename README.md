@@ -15,6 +15,7 @@
   * [searchPlaceholder](#searchplaceholder)
 * [Events](#events)
   * [onChange](#onchange)
+  * [onSearch](#onsearch)
 * [Development](#development)
 
 ## Description
@@ -177,7 +178,14 @@ Fires when the value is changed by the user.
 
 #### Parameters
 **event** `{ component: SelectSearchable, value: any }`  
-An object containing a reference to the component ana a selected value.
+An object containing a reference to the component and a selected value.
+
+### onSearch
+Fires when the user is typing in Searchbar.
+
+#### Parameters
+**event** `{ component: SelectSearchable, text: String }`  
+An object containing a reference to the component and typed text.
 
 ## Development
 1. Install dependencies.  
