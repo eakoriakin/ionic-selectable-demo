@@ -95,6 +95,37 @@ A list of items.
 #### Default value
 `[]`
 
+### isSearching
+Use it to show or hide loading spinner for AJAX search.
+
+#### Type
+`boolean`  
+
+#### Default value
+`false`
+
+### itemValueField
+The name of item field which will be used as a unique identifier of the item. The name can be a property, e.g, `id`.  
+
+#### Type
+`String`  
+
+#### Default value
+`null`
+
+### itemTextField
+The name of item field which will be displayed in the list.  
+The field is relevant only when `items` is an array of objects.
+
+#### Type
+`String`  
+
+#### Default value
+`null`
+
+
+
+
 ## Development
 1. Install dependencies.  
 `npm install`  
