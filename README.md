@@ -10,6 +10,7 @@
   * [itemValueField](#itemvaluefield)
   * [itemTextField](#itemtextfield)
   * [canSearch](#cansearch)
+  * [canReset](#canresest)
 * [Development](#development)
 
 ## Description
@@ -129,7 +130,7 @@ The field is relevant only when `items` is an array of objects.
 `null`
 
 ### canSearch
-Determines whether to show the Searchbar.
+Determines whether to show Searchbar.
 
 #### Type
 `Boolean`
@@ -137,6 +138,14 @@ Determines whether to show the Searchbar.
 ### Default value
 `false`
 
+### canReset
+Determines whether to show Clear button which clears a value.
+
+#### Type
+`Boolean`
+
+#### Default value
+`false`
 
 ## Development
 1. Install dependencies.  
