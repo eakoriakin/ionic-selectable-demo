@@ -4,6 +4,7 @@
 * [Usage](#usage)
   * [Adding it to your project](#adding-it-to-your-project)
   * [Using it with Angular Forms](#using-it-with-angular-forms)
+* [Parameters](#parameters)
 * [Development](#development)
 
 ## Description
@@ -83,13 +84,15 @@ TypeScript:
 ### Using it with Angular Forms
 SelectSearchable component is fully compatible with [Angular 2 Forms](https://angular.io/docs/ts/latest/guide/forms.html) and can be used with both `ngModel` or `FormControl`.
 
-## items
+## Parameters
+
+### items
 A list of items.
 
-### Type
+#### Type
 `Array`  
 
-### Default value
+#### Default value
 `[]`
 
 ## Development
