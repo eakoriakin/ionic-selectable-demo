@@ -11,6 +11,8 @@
   * [itemTextField](#itemtextfield)
   * [canSearch](#cansearch)
   * [canReset](#canreset)
+  * [title](#title)
+  * [searchPlaceholder](#searchplaceholder)
 * [Development](#development)
 
 ## Description
@@ -146,6 +148,24 @@ Determines whether to show Clear button which clears a value.
 
 #### Default value
 `false`
+
+### title
+A title.
+
+#### Type
+`String`  
+
+#### Default value
+`null`
+
+### searchPlaceholder
+A placeholder for Searchbar.
+
+#### Type
+`String`  
+
+#### Default value
+`null`
 
 ## Development
 1. Install dependencies.  
