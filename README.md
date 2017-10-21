@@ -128,7 +128,7 @@ The field is relevant only when `items` is an array of objects.
 #### Default value
 `null`
 
-### canReset
+### canSearch
 Determines whether to show the Searchbar.
 
 #### Type
