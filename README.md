@@ -4,7 +4,7 @@
 * [Usage](#usage)
   * [Adding it to your project](#adding-it-to-your-project)
   * [Using it with Angular Forms](#using-it-with-angular-forms)
-* [Parameters](#parameters)
+* [Fields](#fields)
   * [items](#items)
   * [isSearching](#issearching)
   * [itemValueField](#itemvaluefield)
@@ -13,6 +13,8 @@
   * [canReset](#canreset)
   * [title](#title)
   * [searchPlaceholder](#searchplaceholder)
+* [Events](#events)
+  * [onChange](#onchange)
 * [Development](#development)
 
 ## Description
@@ -48,12 +50,13 @@ HTML:
 
     <ion-item>
         <select-searchable
-            [(ngModel)]="port"
             title="Port"
+            [(ngModel)]="port"
+            [items]="ports"
             itemValueField="id"
             itemTextField="name"
-            [items]="ports"
-            [canSearch]="true">
+            [canSearch]="true"
+            (onChange)="portChange($event)">
         </select-searchable>
     </ion-item>
 
@@ -92,7 +95,7 @@ TypeScript:
 ### Using it with Angular Forms
 SelectSearchable component is fully compatible with [Angular 2 Forms](https://angular.io/docs/ts/latest/guide/forms.html) and can be used with both `ngModel` or `FormControl`.
 
-## Parameters
+## Fields
 
 ### items
 A list of items.
@@ -166,6 +169,15 @@ A placeholder for Searchbar.
 
 #### Default value
 `null`
+
+## Events
+
+### onChange
+Fires when the value is changed by the user.
+
+#### Parameters
+**event** `{ component: SelectSearchable, value: any }`  
+An object containing a reference to the component ana a selected value.
 
 ## Development
 1. Install dependencies.  
