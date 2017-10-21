@@ -6,11 +6,13 @@
   * [Using it with Angular Forms](#using-it-with-angular-forms)
 * [Fields](#fields)
   * [items](#items)
+  * [itemTemplate](#itemtemplate)
   * [isSearching](#issearching)
   * [itemValueField](#itemvaluefield)
   * [itemTextField](#itemtextfield)
   * [canSearch](#cansearch)
   * [canReset](#canreset)
+  * [multiple](#multiple)
   * [title](#title)
   * [searchPlaceholder](#searchplaceholder)
 * [Events](#events)
@@ -107,6 +109,15 @@ A list of items.
 #### Default value
 `[]`
 
+### itemTemplate
+A function used to create a text for each item which will be displayed in the list.
+
+#### Type
+`Function`  
+
+#### Default value
+`null`
+
 ### isSearching
 Use it to show or hide loading spinner for AJAX search.
 
@@ -151,6 +162,15 @@ Determines whether to show Clear button which clears a value.
 `Boolean`
 
 #### Default value
+`false`
+
+## multiple
+Determines whether multiple items can be selected.
+
+### Type
+`Boolean`
+
+### Default value
 `false`
 
 ### title
