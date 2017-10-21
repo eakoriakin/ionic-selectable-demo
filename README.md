@@ -9,6 +9,7 @@
   * [isSearching](#issearching)
   * [itemValueField](#itemvaluefield)
   * [itemTextField](#itemtextfield)
+  * [canSearch](#cansearch)
 * [Development](#development)
 
 ## Description
@@ -127,7 +128,14 @@ The field is relevant only when `items` is an array of objects.
 #### Default value
 `null`
 
+### canReset
+Determines whether to show the Searchbar.
 
+#### Type
+`Boolean`
+
+### Default value
+`false`
 
 
 ## Development
