@@ -140,4 +140,18 @@
             </ion-item>
         </ion-list>
     </form>
+    <ion-list>
+        <ion-list-header>
+            Items as a flat array, e.g. ['Vladivostok', 'San Antonio']
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port9"
+                title="Port"
+                [items]="portNames"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
 </ion-content>

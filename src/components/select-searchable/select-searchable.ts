@@ -121,7 +121,11 @@ export class SelectSearchable implements ControlValueAccessor, OnDestroy, OnChan
             return this.itemTemplate(value);
         }
 
-        return value ? value[this.itemTextField] : null;
+        if (this.isNullOrWhiteSpace(value)) {
+            return null;
+        }
+
+        return this.itemTextField ? value[this.itemTextField] : value.toString();
     }
 
     formatValue(): string {

@@ -136,7 +136,8 @@ export class SelectSearchablePage {
             let filterText = this.selectComponent.filterText.trim().toLowerCase();
 
             this.filteredItems = this.selectComponent.items.filter(item => {
-                return item[this.selectComponent.itemTextField].toLowerCase().indexOf(filterText) !== -1;
+                return (this.selectComponent.itemTextField ? item[this.selectComponent.itemTextField] : item)
+                    .toLowerCase().indexOf(filterText) !== -1;
             });
         }
     }

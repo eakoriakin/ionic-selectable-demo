@@ -9,6 +9,7 @@ import { Port } from '../../types/types';
 })
 export class HomePage {
     ports: Port[];
+    portNames: string[];
     port1: Port;
     port2: Port;
     port3: Port;
@@ -16,15 +17,17 @@ export class HomePage {
     port5: Port;
     port6: Port;
     port7: Port;
+    port9: string = 'Vladivostok';
     form: FormGroup;
     port8Control: FormControl;
 
     constructor(private formBuilder: FormBuilder) {
         this.ports = this.getPorts();
+        this.portNames = this.getPorts().map(port => port.name);
         this.port2 = this.ports[1];
         this.port7 = this.ports[5];
-        this.port8Control = formBuilder.control(this.ports[6], Validators.required);
-        this.form = formBuilder.group({
+        this.port8Control = this.formBuilder.control(this.ports[6], Validators.required);
+        this.form = this.formBuilder.group({
             port8: this.port8Control
         });
     }
