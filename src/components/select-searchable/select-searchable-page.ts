@@ -120,12 +120,8 @@ export class SelectSearchablePage {
 
     filterItems() {
         if (this.selectComponent.hasSearchEvent) {
-            if (this.selectComponent.isNullOrWhiteSpace(this.selectComponent.filterText)) {
-                this.selectComponent.items = [];
-            } else {
-                // Delegate filtering to the event.
-                this.selectComponent.emitSearch();
-            }
+            // Delegate filtering to the event.
+            this.selectComponent.emitSearch();
         } else {
             // Default filtering.
             if (!this.selectComponent.filterText || !this.selectComponent.filterText.trim()) {
