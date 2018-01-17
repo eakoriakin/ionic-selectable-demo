@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { InfiniteScroll } from 'ionic-angular';
 import { SelectSearchable } from '../../components/select-searchable/select-searchable';
 import { Port } from '../../types/types';
 
@@ -9,6 +10,7 @@ import { Port } from '../../types/types';
 })
 export class HomePage {
     ports: Port[];
+    ports10: Port[];
     portNames: string[];
     port1: Port;
     port2: Port;
@@ -18,8 +20,10 @@ export class HomePage {
     port6: Port;
     port7: Port;
     port9: string = 'Vladivostok';
+    port10: Port;
     form: FormGroup;
     port8Control: FormControl;
+    ports10Page = 2;
 
     constructor(private formBuilder: FormBuilder) {
         this.ports = this.getPorts();
@@ -30,10 +34,11 @@ export class HomePage {
         this.form = this.formBuilder.group({
             port8: this.port8Control
         });
+        this.ports10 = this.getPorts();
     }
 
-    getPorts(): Port[] {
-        return [
+    getPorts(page: number = 1, size: number = 15): Port[] {
+        let ports = [
             { id: 0, name: 'Tokai', country: 'Japan' },
             { id: 2, name: 'Vladivostok', country: 'Russia' },
             { id: 3, name: 'Navlakhi', country: 'India' },
@@ -57,8 +62,46 @@ export class HomePage {
             { id: 21, name: 'Bantry Bay', country: 'Ireland' },
             { id: 22, name: 'Porto Levante', country: 'Italy' },
             { id: 23, name: 'Port of Antikyra', country: 'Greece' },
-            { id: 24, name: 'Berantai FPSO', country: 'Malaysia' }
+            { id: 24, name: 'Berantai FPSO', country: 'Malaysia' },
+            { id: 25, name: "Alicante", country: 'Spain' },
+            { id: 26, name: "Almirante", country: 'Panama' },
+            { id: 27, name: "Canton", country: 'China' },
+            { id: 28, name: "Dante", country: 'Somalia' },
+            { id: 29, name: "Davant LA", country: 'United States' },
+            { id: 30, name: "Fremantle", country: 'Australia' },
+            { id: 31, name: "General Santos", country: 'Philippines' },
+            { id: 32, name: "Granton", country: 'United Kingdom' },
+            { id: 33, name: "Guanta", country: 'Venezuela' },
+            { id: 34, name: "Hambantota", country: 'Sri Lanka' },
+            { id: 35, name: "Kalimantan", country: 'Indonesia' },
+            { id: 36, name: "Kantang", country: 'Thailand' },
+            { id: 37, name: "Kantvik", country: 'Finland' },
+            { id: 38, name: "Kuantan", country: 'Malaysia' },
+            { id: 39, name: "Lantian", country: 'China' },
+            { id: 40, name: "Manta", country: 'Ecuador' },
+            { id: 41, name: "Mantes", country: 'France' },
+            { id: 42, name: "Nantong", country: 'China' },
+            { id: 43, name: "Antonina", country: 'Brazil' },
+            { id: 44, name: "Santa Cruz", country: 'Argentina' },
+            { id: 45, name: "Santa Eugenia De Riveira", country: 'Spain' }
         ];
+
+        return ports.slice((page - 1) * size, ((page - 1) * size) + size);
+    }
+
+    getMorePorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll }) {
+        // Trere're no more ports - disable infinite scroll.
+        if (this.ports10Page > 3) {
+            event.infiniteScroll.enable(false);
+            return;
+        }
+
+        // Simulate async operation.
+        setTimeout(() => {
+            event.component.items = event.component.items.concat(this.getPorts(this.ports10Page));
+            event.infiniteScroll.complete();
+            this.ports10Page++;
+        }, 2000);
     }
 
     searchPorts(event: { component: SelectSearchable, text: string }) {
@@ -73,7 +116,7 @@ export class HomePage {
 
         event.component.isSearching = true;
 
-        // Simulate AJAX.
+        // Simulate async operation.
         setTimeout(() => {
             event.component.items = this.getPorts().filter(port => {
                 return port.name.toLowerCase().indexOf(text) !== -1 ||

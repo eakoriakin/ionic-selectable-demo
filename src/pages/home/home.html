@@ -154,4 +154,22 @@
             </select-searchable>
         </ion-item>
     </ion-list>
+    <ion-list>
+        <ion-list-header>
+            Infinite scroll
+        </ion-list-header>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port10"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports10"
+                [hasInfiniteScroll]="true"
+                [canSearch]="true"
+                (onInfiniteScroll)="getMorePorts($event)"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-list>
 </ion-content>

@@ -41,10 +41,12 @@ export class SelectSearchable implements ControlValueAccessor, OnDestroy, OnChan
     @Input() itemTextField: string;
     @Input() canSearch = false;
     @Input() canReset = false;
+    @Input() hasInfiniteScroll = false;
     @Input() title: string;
     @Input() searchPlaceholder: string = 'Enter 3 or more characters';
     @Output() onChange: EventEmitter<any> = new EventEmitter();
     @Output() onSearch: EventEmitter<any> = new EventEmitter();
+    @Output() onInfiniteScroll: EventEmitter<any> = new EventEmitter();
     @Input() itemTemplate: Function;
     @Input() multiple: boolean;
 
@@ -62,7 +64,7 @@ export class SelectSearchable implements ControlValueAccessor, OnDestroy, OnChan
     ngOnInit() {
         this.isIos = this.platform.is('ios');
         this.isMd = this.platform.is('android');
-        this.hasSearchEvent = this.onSearch.observers.length > 0;
+        this.hasSearchEvent = this.onSearch.observers.length > 0 && !this.hasInfiniteScroll;
         this.ionForm.register(this);
 
         if (this.ionItem) {

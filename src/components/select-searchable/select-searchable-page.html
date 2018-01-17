@@ -26,6 +26,9 @@
             <h2>{{selectComponent.formatItem(item)}}</h2>
         </button>
     </ion-list>
+    <ion-infinite-scroll [enabled]="selectComponent.hasInfiniteScroll" (ionInfinite)="getMoreItems($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
     <div *ngIf="!filteredItems.length" margin>No items found.</div>
 </ion-content>
 <ion-footer *ngIf="selectComponent.canReset || selectComponent.multiple">

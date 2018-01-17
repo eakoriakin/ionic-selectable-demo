@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavParams, NavController, Searchbar } from 'ionic-angular';
+import { NavParams, NavController, Searchbar, InfiniteScroll } from 'ionic-angular';
 import { SelectSearchable } from './select-searchable';
 
 @Component({
@@ -123,18 +123,28 @@ export class SelectSearchablePage {
             // Delegate filtering to the event.
             this.selectComponent.emitSearch();
         } else {
+            let items = [];
+
             // Default filtering.
             if (!this.selectComponent.filterText || !this.selectComponent.filterText.trim()) {
-                this.filteredItems = this.selectComponent.items;
-                return;
+                items = this.selectComponent.items;
+            } else {
+                let filterText = this.selectComponent.filterText.trim().toLowerCase();
+
+                items = this.selectComponent.items.filter(item => {
+                    return (this.selectComponent.itemTextField ? item[this.selectComponent.itemTextField] : item)
+                        .toLowerCase().indexOf(filterText) !== -1;
+                });
             }
 
-            let filterText = this.selectComponent.filterText.trim().toLowerCase();
-
-            this.filteredItems = this.selectComponent.items.filter(item => {
-                return (this.selectComponent.itemTextField ? item[this.selectComponent.itemTextField] : item)
-                    .toLowerCase().indexOf(filterText) !== -1;
-            });
+            this.filteredItems = items;
         }
+    }
+
+    getMoreItems(infiniteScroll: InfiniteScroll) {
+        this.selectComponent.onInfiniteScroll.emit({
+            component: this.selectComponent,
+            infiniteScroll: infiniteScroll
+        });
     }
 }
