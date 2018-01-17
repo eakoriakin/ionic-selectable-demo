@@ -5,6 +5,7 @@
   * [Adding it to your project](#adding-it-to-your-project)
   * [Using it with Angular Forms](#using-it-with-angular-forms)
 * [Fields](#fields)
+  * [hasInfiniteScroll](#hasinfinitescroll)
   * [items](#items)
   * [itemTemplate](#itemtemplate)
   * [isSearching](#issearching)
@@ -17,6 +18,7 @@
   * [searchPlaceholder](#searchplaceholder)
 * [Events](#events)
   * [onChange](#onchange)
+  * [onInfiniteScroll](#oninfinitescroll)
   * [onSearch](#onsearch)
 * [Development](#development)
 
@@ -99,6 +101,15 @@ TypeScript:
 SelectSearchable component is fully compatible with [Angular 2 Forms](https://angular.io/docs/ts/latest/guide/forms.html) and can be used with both `ngModel` or `FormControl`.
 
 ## Fields
+
+## hasInfiniteScroll
+Determines whether infinite scroll is enabled.
+
+### Type
+`Boolean`
+
+## Default value
+`false`
 
 ## items
 A list of items.
@@ -199,6 +210,14 @@ Fires when the value is changed by the user.
 ### Parameters
 **event** `{ component: SelectSearchable, value: any }`  
 An object containing a reference to the component and a selected value.
+
+## onInfiniteScroll
+Fires when the user has scrolled to the end of the list.  
+`hasInfiniteScroll` has to be enabled.
+
+### Parameters
+**event** `{ component: SelectSearchable, infiniteScroll: InfiniteScroll }`  
+An object containing a reference to the component and infinite scroll.
 
 ## onSearch
 Fires when the user is typing in Searchbar.
