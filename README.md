@@ -108,7 +108,7 @@ Determines whether infinite scroll is enabled.
 ### Type
 `Boolean`
 
-## Default value
+### Default value
 `false`
 
 ## items
@@ -163,7 +163,7 @@ Determines whether to show Searchbar.
 ### Type
 `Boolean`
 
-## Default value
+### Default value
 `false`
 
 ## canReset
