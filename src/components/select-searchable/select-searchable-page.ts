@@ -19,8 +19,8 @@ export class SelectSearchablePage {
     @ViewChild('searchbarComponent') searchbarComponent: Searchbar;
 
     constructor(private navParams: NavParams) {
-        this.selectComponent = navParams.get('selectComponent');
-        this.navController = navParams.get('navController');
+        this.selectComponent = this.navParams.get('selectComponent');
+        this.navController = this.navParams.get('navController');
         this.filteredItems = this.selectComponent.items;
         this.filterItems();
 
