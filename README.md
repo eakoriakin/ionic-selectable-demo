@@ -200,7 +200,7 @@ A placeholder for Searchbar.
 `String`  
 
 ### Default value
-`null`
+A text string `Search`.
 
 ## Events
 
