@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { InfiniteScroll } from 'ionic-angular';
-import { SelectSearchable } from '../../components/select-searchable/select-searchable';
+import { SelectSearchable } from 'ionic-select-searchable';
 import { Port } from '../../types/types';
 
 @Component({
