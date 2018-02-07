@@ -11,11 +11,11 @@ export class MyApp {
     rootPage: any = TabsPage;
 
     constructor(private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen) {
-        platform.ready().then(() => {
+        this.platform.ready().then(() => {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
-            statusBar.styleDefault();
-            splashScreen.hide();
+            this.statusBar.styleDefault();
+            this.splashScreen.hide();
         });
     }
 }

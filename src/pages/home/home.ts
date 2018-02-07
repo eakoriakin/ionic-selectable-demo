@@ -132,7 +132,7 @@ export class HomePage {
     }
 
     portChange(event: { component: SelectSearchable, value: any }) {
-        console.log('value:', event.value);
+        console.log('port:', event.value);
     }
 
     reset() {
