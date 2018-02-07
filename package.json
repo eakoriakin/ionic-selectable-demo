@@ -1,6 +1,6 @@
 {
     "version": "0.0.1",
-    "name": "select-searchable-demo",
+    "name": "ionic-select-searchable-demo",
     "title": "Ionic SelectSearchable Demo",
     "description": "A demo app for Ionic SelectSearchable component (https://github.com/eakoriakin/ionic-select-searchable).",
     "author": {
@@ -10,7 +10,7 @@
     "license": "(MIT OR Apache-2.0)",
     "repository": {
         "type": "git",
-        "url": "https://github.com/eakoriakin/select-searchable-demo.git"
+        "url": "https://github.com/eakoriakin/ionic-select-searchable-demo.git"
     },
     "scripts": {
         "clean": "ionic-app-scripts clean",
@@ -33,7 +33,7 @@
         "@ionic-native/status-bar": "4.5.0",
         "@ionic/storage": "2.1.3",
         "ionic-angular": "3.9.2",
-        "ionic-select-searchable": "1.0.0",
+        "ionic-select-searchable": "1.0.1",
         "ionicons": "3.0.0",
         "rxjs": "5.5.2",
         "sw-toolbox": "3.6.0",
