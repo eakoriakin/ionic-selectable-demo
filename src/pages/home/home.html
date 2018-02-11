@@ -1,13 +1,13 @@
 <ion-header>
     <ion-navbar>
-        <ion-title>Ionic SelectSearchable Demo</ion-title>
+        <ion-title>Ionic SelectSearchable</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content>
-    <ion-list>
-        <ion-list-header>
-            Simple Select
-        </ion-list-header>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Basic</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port1"
@@ -18,11 +18,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            With preselected value
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Initial value</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port2"
@@ -33,11 +33,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            With Search
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Search</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port3"
@@ -49,11 +49,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            With Async Search (AJAX)
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Async search</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port4"
@@ -67,11 +67,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            With a custom template for items
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Item template</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port5"
@@ -84,11 +84,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            Multiple selection
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Multiple selection</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port6"
@@ -101,11 +101,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            With "Clear" button
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>"Clear" button</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port7"
@@ -117,12 +117,12 @@
                 [canReset]="true">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <form [formGroup]="form">
-        <ion-list>
-            <ion-list-header>
-                Using together with Angular 2 Validators
-            </ion-list-header>
+    </ion-item-group>
+    <form [formGroup]="form" margin-bottom>
+        <ion-item-group>
+            <ion-item-divider color="light">
+                <h1>Angular Forms support</h1>
+            </ion-item-divider>
             <ion-item>
                 <select-searchable
                     formControlName="port8"
@@ -138,12 +138,12 @@
             <ion-item>
                 <p>Is valid: {{form.valid}}</p>
             </ion-item>
-        </ion-list>
+        </ion-item-group>
     </form>
-    <ion-list>
-        <ion-list-header>
-            Items as a flat array, e.g. ['Vladivostok', 'San Antonio']
-        </ion-list-header>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Flat array, e.g. ['Vladivostok', ...]</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port9"
@@ -153,11 +153,11 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
-    <ion-list>
-        <ion-list-header>
-            Infinite scroll
-        </ion-list-header>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Infinite scroll</h1>
+        </ion-item-divider>
         <ion-item>
             <select-searchable
                 [(ngModel)]="port10"
@@ -171,5 +171,5 @@
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>
-    </ion-list>
+    </ion-item-group>
 </ion-content>
