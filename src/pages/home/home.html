@@ -52,7 +52,7 @@
     </ion-item-group>
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
-            <h1>Async search</h1>
+            <h1>Search (Async)</h1>
         </ion-item-divider>
         <ion-item>
             <select-searchable
@@ -78,7 +78,7 @@
                 title="Port"
                 itemValueField="id"
                 itemTextField="name"
-                [itemTemplate]="portTemplate"
+                [itemTemplate]="portItemTemplate"
                 [items]="ports"
                 [canSearch]="true"
                 (onChange)="portChange($event)">
@@ -170,6 +170,14 @@
                 (onInfiniteScroll)="getMorePorts($event)"
                 (onChange)="portChange($event)">
             </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Inside modal</h1>
+        </ion-item-divider>
+        <ion-item>
+            <button ion-button (click)="openModal()">Open</button>
         </ion-item>
     </ion-item-group>
 </ion-content>
