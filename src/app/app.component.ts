@@ -7,7 +7,7 @@ import { HomePage } from '../pages/home/home';
 @Component({
     templateUrl: 'app.html'
 })
-export class MyApp {
+export class AppComponent {
     rootPage: any = HomePage;
 
     constructor(private platform: Platform, private statusBar: StatusBar, private splashScreen: SplashScreen) {
