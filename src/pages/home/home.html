@@ -167,7 +167,7 @@
                 [items]="ports10"
                 [hasInfiniteScroll]="true"
                 [canSearch]="true"
-                (onSearch)="searchPorts10($event)"
+                (onSearch)="searchPortsInfinite($event)"
                 (onInfiniteScroll)="getMorePorts($event)"
                 (onChange)="portChange($event)">
             </select-searchable>

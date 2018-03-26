@@ -43,7 +43,16 @@ export class HomePage {
         this.ports10 = this.portService.getPorts();
     }
 
-    getMorePorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll }) {
+    filterPorts(ports: Port[], text: string) {
+        return ports.filter(port => {
+            return port.name.toLowerCase().indexOf(text) !== -1 ||
+                port.country.toLowerCase().indexOf(text) !== -1;
+        });
+    }
+
+    getMorePorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
+        let text = (event.text || '').trim().toLowerCase();
+
         // Trere're no more ports - disable infinite scroll.
         if (this.ports10Page > 3) {
             event.infiniteScroll.enable(false);
@@ -51,54 +60,56 @@ export class HomePage {
         }
 
         this.portService.getPortsAsync(this.ports10Page).subscribe(ports => {
-            event.component.items = event.component.items.concat(ports);
+            ports = event.component.items.concat(ports);
+
+            if (text) {
+                ports = this.filterPorts(ports, text);
+            }
+
+            event.component.items = ports;
             event.infiniteScroll.complete();
             this.ports10Page++;
         });
     }
 
-    searchPorts(event: { component: SelectSearchable, text: string }) {
+    searchPorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
         let text = (event.text || '').trim().toLowerCase();
 
         if (!text) {
             event.component.items = [];
             return;
-        } else if (event.text.length < 3) {
+        } else if (event.text.length < 1) {
             return;
         }
 
         event.component.isSearching = true;
 
         this.portService.getPortsAsync().subscribe(ports => {
-            event.component.items = ports.filter(port => {
-                return port.name.toLowerCase().indexOf(text) !== -1 ||
-                    port.country.toLowerCase().indexOf(text) !== -1;
-            });
-
+            event.component.items = this.filterPorts(ports, text);
             event.component.isSearching = false;
         });
     }
 
-    searchPorts10(event: { component: SelectSearchable, text: string }) {
+    searchPortsInfinite(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
         let text = (event.text || '').trim().toLowerCase();
 
         if (!text) {
             event.component.items = this.portService.getPorts();
             // Start infinite scroll from the beginning.
             this.ports10Page = 2;
+
+            if (event.infiniteScroll) {
+                event.infiniteScroll.enable(true);
+            }
             return;
-        } else if (event.text.length < 3) {
+        } else if (event.text.length < 1) {
             return;
         }
 
         event.component.isSearching = true;
 
         this.portService.getPortsAsync().subscribe(ports => {
-            event.component.items = ports.filter(port => {
-                return port.name.toLowerCase().indexOf(text) !== -1 ||
-                    port.country.toLowerCase().indexOf(text) !== -1;
-            });
-
+            event.component.items = this.filterPorts(ports, text);
             event.component.isSearching = false;
         });
     }

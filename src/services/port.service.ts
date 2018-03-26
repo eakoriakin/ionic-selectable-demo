@@ -57,10 +57,10 @@ export class PortService {
         return this.ports.slice((page - 1) * size, ((page - 1) * size) + size);
     }
 
-    getPortsAsync(page: number = 1, size: number = 15): Observable<Port[]> {
+    getPortsAsync(page: number = 1, size: number = 15, timeout = 2000): Observable<Port[]> {
         return new Observable<Port[]>(observer => {
             observer.next(this.getPorts(page, size));
             observer.complete()
-        }).pipe(delay(2000));
+        }).pipe(delay(timeout));
     }
 }
