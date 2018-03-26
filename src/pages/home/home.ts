@@ -79,6 +79,30 @@ export class HomePage {
         });
     }
 
+    searchPorts10(event: { component: SelectSearchable, text: string }) {
+        let text = (event.text || '').trim().toLowerCase();
+
+        if (!text) {
+            event.component.items = this.portService.getPorts();
+            // Start infinite scroll from the beginning.
+            this.ports10Page = 2;
+            return;
+        } else if (event.text.length < 3) {
+            return;
+        }
+
+        event.component.isSearching = true;
+
+        this.portService.getPortsAsync().subscribe(ports => {
+            event.component.items = ports.filter(port => {
+                return port.name.toLowerCase().indexOf(text) !== -1 ||
+                    port.country.toLowerCase().indexOf(text) !== -1;
+            });
+
+            event.component.isSearching = false;
+        });
+    }
+
     portItemTemplate(port: Port) {
         return `${port.name} (${port.country})`;
     }
