@@ -4,6 +4,10 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
+    <ion-item>
+        <ion-label>Inline Label</ion-label>
+        <ion-input placeholder="Text Input" [disabled]="true"></ion-input>
+    </ion-item>
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
             <h1>Basic</h1>
@@ -30,6 +34,22 @@
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
+                (onChange)="portChange($event)">
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Disabled</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port11"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [isEnabled]="false"
                 (onChange)="portChange($event)">
             </select-searchable>
         </ion-item>

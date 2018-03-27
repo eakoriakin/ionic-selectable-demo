@@ -23,6 +23,7 @@ export class HomePage {
     port7: Port;
     port9: string = 'Vladivostok';
     port10: Port;
+    port11: Port;
     form: FormGroup;
     port8Control: FormControl;
     ports10Page = 2;
@@ -41,6 +42,7 @@ export class HomePage {
             port8: this.port8Control
         });
         this.ports10 = this.portService.getPorts();
+        this.port11 = this.ports[1];
     }
 
     filterPorts(ports: Port[], text: string) {
