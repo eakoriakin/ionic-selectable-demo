@@ -200,7 +200,7 @@
     </ion-item-group>
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
-            <h1>Uses Modal for select page</h1>
+            <h1>Uses Navigation Page for popup</h1>
         </ion-item-divider>
         <ion-item>
             <select-searchable
@@ -208,7 +208,7 @@
                 title="Port"
                 itemValueField="id"
                 itemTextField="name"
-                [useModal]="true"
+                [useModal]="false"
                 [canSearch]="true"
                 [items]="ports"
                 (onChange)="portChange($event)">
