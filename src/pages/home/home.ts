@@ -24,6 +24,7 @@ export class HomePage {
     port9: string = 'Vladivostok';
     port10: Port;
     port11: Port;
+    port12: Port;
     form: FormGroup;
     port8Control: FormControl;
     ports10Page = 2;
