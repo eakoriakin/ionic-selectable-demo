@@ -6,6 +6,30 @@
 <ion-content>
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
+            <h1>Templates</h1>
+        </ion-item-divider>
+        <ion-item>
+            <ports
+                [isMultiple]="true"
+                [ports]="ports"
+                [portTemplate]="portTemplate"
+                [valueTemplate]="valueTemplate">
+                    <ng-template #portTemplate let-port="port">
+                        {{port.name}}
+                    </ng-template>
+                    <ng-template #valueTemplate let-ports="value">
+                        <div *ngFor="let port of ports">
+                            {{port.name}}
+                        </div>
+                    </ng-template>
+                    <!-- <ng-template #valueTemplate let-port="value">
+                        {{port.name}}
+                    </ng-template> -->
+            </ports>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
             <h1>Basic</h1>
         </ion-item-divider>
         <ion-item>
