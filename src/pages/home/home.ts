@@ -25,6 +25,7 @@ export class HomePage {
     port10: Port;
     port11: Port;
     port12: Port;
+    port13: Port;
     form: FormGroup;
     port8Control: FormControl;
     ports10Page = 2;
@@ -115,10 +116,6 @@ export class HomePage {
             event.component.items = this.filterPorts(ports, text);
             event.component.isSearching = false;
         });
-    }
-
-    portItemTemplate(port: Port) {
-        return `${port.name} (${port.country})`;
     }
 
     portChange(event: { component: SelectSearchable, value: any }) {

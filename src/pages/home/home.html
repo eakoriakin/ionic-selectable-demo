@@ -6,30 +6,6 @@
 <ion-content>
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
-            <h1>Templates</h1>
-        </ion-item-divider>
-        <ion-item>
-            <ports
-                [isMultiple]="true"
-                [ports]="ports"
-                [portTemplate]="portTemplate"
-                [valueTemplate]="valueTemplate">
-                    <ng-template #portTemplate let-port="port">
-                        {{port.name}}
-                    </ng-template>
-                    <ng-template #valueTemplate let-ports="value">
-                        <div *ngFor="let port of ports">
-                            {{port.name}}
-                        </div>
-                    </ng-template>
-                    <!-- <ng-template #valueTemplate let-port="value">
-                        {{port.name}}
-                    </ng-template> -->
-            </ports>
-        </ion-item>
-    </ion-item-group>
-    <ion-item-group margin-bottom>
-        <ion-item-divider color="light">
             <h1>Basic</h1>
         </ion-item-divider>
         <ion-item>
@@ -122,6 +98,54 @@
                 [items]="ports"
                 [canSearch]="true"
                 (onChange)="portChange($event)">
+                <ng-template #portItemTemplate let-port="item">
+                    {{port.name}} ({{port.country}})
+                </ng-template>
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Value template</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port12"
+                title="Port"
+                itemValueField="id"
+                itemTextField="name"
+                [valueTemplate]="portValueTemplate"
+                [items]="ports"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+                <ng-template #portValueTemplate let-port="item">
+                    <span *ngIf="port">
+                        {{port.name}} ({{port.country}})
+                    </span>
+                </ng-template>
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Multiple value template</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port13"
+                title="Port"
+                [multiple]="true"
+                itemValueField="id"
+                itemTextField="name"
+                [valueTemplate]="portsValueTemplate"
+                [items]="ports"
+                [canSearch]="true"
+                (onChange)="portChange($event)">
+                <ng-template #portsValueTemplate let-ports="items">
+                    <div class="select-searchable-value-item" *ngFor="let port of ports">
+                        {{port.name}} ({{port.country}})
+                    </div>
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -220,23 +244,6 @@
         </ion-item-divider>
         <ion-item>
             <button ion-button (click)="openModal()">Open</button>
-        </ion-item>
-    </ion-item-group>
-    <ion-item-group margin-bottom>
-        <ion-item-divider color="light">
-            <h1>Uses Navigation Page for popup</h1>
-        </ion-item-divider>
-        <ion-item>
-            <select-searchable
-                [(ngModel)]="port12"
-                title="Port"
-                itemValueField="id"
-                itemTextField="name"
-                [useModal]="false"
-                [canSearch]="true"
-                [items]="ports"
-                (onChange)="portChange($event)">
-            </select-searchable>
         </ion-item>
     </ion-item-group>
 </ion-content>

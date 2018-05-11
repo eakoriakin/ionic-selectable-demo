@@ -8,9 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SelectSearchableModule } from 'ionic-select-searchable';
 import { PortService } from '../services';
-import { PortsComponent } from '../components/ports/ports';
 
-let components = [AppComponent, HomePage, ModalPage, PortsComponent];
+let components = [AppComponent, HomePage, ModalPage];
 
 @NgModule({
     declarations: components,
