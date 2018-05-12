@@ -8,11 +8,15 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SelectSearchableModule } from 'ionic-select-searchable';
 import { PortService } from '../services';
+import { PortsComponent } from '../components/ports/ports';
+import { PortsItemTemplateDirective } from '../components/ports/ports-item-template';
+import { PortsValueTemplateDirective } from '../components/ports/ports-value-template';
+import { PortsTitleTemplateDirective } from '../components/ports/ports-title-template';
 
-let components = [AppComponent, HomePage, ModalPage];
+let components = [AppComponent, HomePage, ModalPage, PortsComponent];
 
 @NgModule({
-    declarations: components,
+    declarations: [...components, PortsItemTemplateDirective, PortsValueTemplateDirective, PortsTitleTemplateDirective],
     imports: [
         BrowserModule,
         IonicModule.forRoot(AppComponent),
