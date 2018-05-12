@@ -1,0 +1,16 @@
+<div>
+    <div *ngIf="portsTitleTemplate"
+        [ngTemplateOutlet]="portsTitleTemplate">
+    </div>
+    <br/>
+    <br/>
+    <div *ngFor="let port of ports">
+        <div *ngIf="portsItemTemplate"
+            [ngTemplateOutlet]="portsItemTemplate" [ngTemplateOutletContext]="{ item: port }">
+        </div>
+    </div>
+    <br/>
+    <div *ngIf="portsValueTemplate &&value"
+        [ngTemplateOutlet]="portsValueTemplate" [ngTemplateOutletContext]="{ value: value }">
+    </div>
+</div>

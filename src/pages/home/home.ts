@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { InfiniteScroll, ModalController } from 'ionic-angular';
-import { SelectSearchable } from 'ionic-select-searchable';
+import { SelectSearchableComponent } from 'ionic-select-searchable';
 import { Port } from '../../types';
 import { PortService } from '../../services';
 import { ModalPage } from '../modal/modal';
@@ -24,6 +24,9 @@ export class HomePage {
     port9: string = 'Vladivostok';
     port10: Port;
     port11: Port;
+    port12: Port;
+    port13: Port;
+    port14: Port;
     form: FormGroup;
     port8Control: FormControl;
     ports10Page = 2;
@@ -52,7 +55,11 @@ export class HomePage {
         });
     }
 
-    getMorePorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
+    getMorePorts(event: {
+        component: SelectSearchableComponent,
+        infiniteScroll: InfiniteScroll,
+        text: string
+    }) {
         let text = (event.text || '').trim().toLowerCase();
 
         // Trere're no more ports - disable infinite scroll.
@@ -74,7 +81,11 @@ export class HomePage {
         });
     }
 
-    searchPorts(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
+    searchPorts(event: {
+        component: SelectSearchableComponent,
+        infiniteScroll: InfiniteScroll,
+        text: string
+    }) {
         let text = (event.text || '').trim().toLowerCase();
 
         if (!text) {
@@ -92,7 +103,11 @@ export class HomePage {
         });
     }
 
-    searchPortsInfinite(event: { component: SelectSearchable, infiniteScroll: InfiniteScroll, text: string }) {
+    searchPortsInfinite(event: {
+        component: SelectSearchableComponent,
+        infiniteScroll: InfiniteScroll,
+        text: string
+    }) {
         let text = (event.text || '').trim().toLowerCase();
 
         if (!text) {
@@ -116,11 +131,10 @@ export class HomePage {
         });
     }
 
-    portItemTemplate(port: Port) {
-        return `${port.name} (${port.country})`;
-    }
-
-    portChange(event: { component: SelectSearchable, value: any }) {
+    portChange(event: {
+        component: SelectSearchableComponent,
+        value: any
+    }) {
         console.log('port:', event.value);
     }
 

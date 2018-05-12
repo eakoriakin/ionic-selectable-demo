@@ -16,10 +16,12 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-list>

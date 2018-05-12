@@ -4,6 +4,24 @@
     </ion-navbar>
 </ion-header>
 <ion-content>
+    <!-- <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Test</h1>
+        </ion-item-divider>
+        <ion-item>
+            <ports [ports]="ports">
+                <ng-template portsTitleTemplate>
+                    Ports
+                </ng-template>
+                <ng-template portsItemTemplate let-port="item">
+                    {{port.name}} ({{port.country}})
+                </ng-template>
+                <ng-template portsValueTemplate let-port="value">
+                    {{port.name}} ({{port.country}})
+                </ng-template>
+            </ports>
+        </ion-item>
+    </ion-item-group> -->
     <ion-item-group margin-bottom>
         <ion-item-divider color="light">
             <h1>Basic</h1>
@@ -11,11 +29,13 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port1"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -26,11 +46,13 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port2"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -41,12 +63,14 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port11"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
                 [isEnabled]="false"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -57,12 +81,14 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port3"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
                 [canSearch]="true"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -73,7 +99,6 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port4"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
@@ -81,6 +106,26 @@
                 searchPlaceholder="Type to search, e.g. &quot;s&quot;"
                 (onSearch)="searchPorts($event)"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Label template</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port14"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port <span style="color: red">(required)</span>
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -91,13 +136,65 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port5"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
-                [itemTemplate]="portItemTemplate"
                 [items]="ports"
                 [canSearch]="true"
+                [canReset]="true"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
+                <ng-template selectSearchableItemTemplate let-port="item">
+                    {{port.name}} ({{port.country}})
+                </ng-template>
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Value template</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port12"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [canSearch]="true"
+                [canReset]="true"
+                (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
+                <ng-template selectSearchableValueTemplate let-port="value">
+                    {{port.name}} ({{port.country}})
+                </ng-template>
+            </select-searchable>
+        </ion-item>
+    </ion-item-group>
+    <ion-item-group margin-bottom>
+        <ion-item-divider color="light">
+            <h1>Multiple value template</h1>
+        </ion-item-divider>
+        <ion-item>
+            <select-searchable
+                [(ngModel)]="port13"
+                [multiple]="true"
+                itemValueField="id"
+                itemTextField="name"
+                [items]="ports"
+                [canSearch]="true"
+                [canReset]="true"
+                (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
+                <ng-template selectSearchableValueTemplate let-ports="value">
+                    <div class="select-searchable-value-item" *ngFor="let port of ports">
+                        {{port.name}} ({{port.country}})
+                    </div>
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -108,7 +205,6 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port6"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
@@ -116,6 +212,9 @@
                 [canReset]="true"
                 [multiple]="true"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -126,12 +225,14 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port7"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports"
                 (onChange)="portChange($event)"
                 [canReset]="true">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -143,12 +244,14 @@
             <ion-item>
                 <select-searchable
                     formControlName="port8"
-                    title="Port"
                     itemValueField="id"
                     itemTextField="name"
                     [items]="ports"
                     [canSearch]="true"
                     (onChange)="portChange($event)">
+                    <ng-template selectSearchableLabelTemplate>
+                        Port
+                    </ng-template>
                 </select-searchable>
                 <button ion-button item-right (click)="reset()" [disabled]="!form.valid">Reset</button>
             </ion-item>
@@ -164,10 +267,12 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port9"
-                title="Port"
                 [items]="portNames"
                 [canSearch]="true"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
@@ -178,7 +283,6 @@
         <ion-item>
             <select-searchable
                 [(ngModel)]="port10"
-                title="Port"
                 itemValueField="id"
                 itemTextField="name"
                 [items]="ports10"
@@ -187,6 +291,9 @@
                 (onSearch)="searchPortsInfinite($event)"
                 (onInfiniteScroll)="getMorePorts($event)"
                 (onChange)="portChange($event)">
+                <ng-template selectSearchableLabelTemplate>
+                    Port
+                </ng-template>
             </select-searchable>
         </ion-item>
     </ion-item-group>
