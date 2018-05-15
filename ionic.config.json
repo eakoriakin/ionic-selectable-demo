@@ -1,6 +1,8 @@
 {
-    "name": "ionic-select-searchable-demo",
-    "app_id": "a05695fc",
-    "type": "ionic-angular",
-    "integrations": {}
+  "name": "ionic-select-searchable-demo",
+  "app_id": "a05695fc",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
