@@ -8,9 +8,7 @@ import { PortsComponent } from '../components/ports/ports';
 import { PortsItemTemplateDirective } from '../components/ports/ports-item-template';
 import { PortsTitleTemplateDirective } from '../components/ports/ports-title-template';
 import { PortsValueTemplateDirective } from '../components/ports/ports-value-template';
-import { FindPortsPage } from '../pages/find-ports/find-ports';
-import { HomePage } from '../pages/home/home';
-import { ModalPage } from '../pages/modal/modal';
+import { FindPortsPage, HomePage, ModalPage } from '../pages';
 import { PortService } from '../services';
 import { AppComponent } from './app.component';
 

@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { InfiniteScroll, ModalController } from 'ionic-angular';
 import { SelectSearchableComponent } from 'ionic-select-searchable';
+import { ModalPage } from '../';
 import { PortService } from '../../services';
 import { Port } from '../../types';
-import { ModalPage } from '../modal/modal';
 
 @Component({
     selector: 'page-home',
