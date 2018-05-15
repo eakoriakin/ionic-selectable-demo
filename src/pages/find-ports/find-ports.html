@@ -1,0 +1,41 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Find Ports</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-item>
+        <select-searchable
+            [(ngModel)]="country"
+            itemValueField="id"
+            itemTextField="name"
+            [items]="countries"
+            [canSearch]="true"
+            (onChange)="portChange($event)">
+            <ng-template selectSearchableLabelTemplate>
+                Country
+            </ng-template>
+        </select-searchable>
+    </ion-item>
+    <ion-item>
+        <select-searchable
+            [(ngModel)]="port"
+            itemValueField="id"
+            itemTextField="name"
+            [multiple]="true"
+            [items]="ports"
+            [canSearch]="true"
+            [canReset]="true"
+            (onSearch)="searchPorts($event)"
+            (onChange)="portChange($event)">
+            <ng-template selectSearchableLabelTemplate>
+                Port
+            </ng-template>
+            <ng-template selectSearchableValueTemplate let-ports="value">
+                <div class="select-searchable-value-item">
+                    {{formatPorts(ports)}}
+                </div>
+            </ng-template>
+        </select-searchable>
+    </ion-item>
+</ion-content>

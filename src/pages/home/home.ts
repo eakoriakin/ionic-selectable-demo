@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { InfiniteScroll, ModalController } from 'ionic-angular';
 import { SelectSearchableComponent } from 'ionic-select-searchable';
-import { Port } from '../../types';
 import { PortService } from '../../services';
+import { Port } from '../../types';
 import { ModalPage } from '../modal/modal';
 
 @Component({
@@ -36,22 +36,22 @@ export class HomePage {
         private modalController: ModalController,
         private portService: PortService
     ) {
-        this.ports = this.portService.getPorts();
-        this.portNames = this.portService.getPorts().map(port => port.name);
+        this.ports = this.portService.getPorts(1, 15);
+        this.portNames = this.portService.getPorts(1, 15).map(port => port.name);
         this.port2 = this.ports[1];
         this.port7 = this.ports[5];
         this.port8Control = this.formBuilder.control(this.ports[6], Validators.required);
         this.form = this.formBuilder.group({
             port8: this.port8Control
         });
-        this.ports10 = this.portService.getPorts();
+        this.ports10 = this.portService.getPorts(1, 15);
         this.port11 = this.ports[1];
     }
 
     filterPorts(ports: Port[], text: string) {
         return ports.filter(port => {
             return port.name.toLowerCase().indexOf(text) !== -1 ||
-                port.country.toLowerCase().indexOf(text) !== -1;
+                port.country.name.toLowerCase().indexOf(text) !== -1;
         });
     }
 
@@ -68,7 +68,7 @@ export class HomePage {
             return;
         }
 
-        this.portService.getPortsAsync(this.ports10Page).subscribe(ports => {
+        this.portService.getPortsAsync(this.ports10Page, 15).subscribe(ports => {
             ports = event.component.items.concat(ports);
 
             if (text) {
@@ -111,7 +111,7 @@ export class HomePage {
         let text = (event.text || '').trim().toLowerCase();
 
         if (!text) {
-            event.component.items = this.portService.getPorts();
+            event.component.items = this.portService.getPorts(1, 15);
             // Start infinite scroll from the beginning.
             this.ports10Page = 2;
 

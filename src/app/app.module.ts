@@ -1,19 +1,20 @@
-import { NgModule, ErrorHandler } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { AppComponent } from './app.component';
-import { HomePage } from '../pages/home/home';
-import { ModalPage } from '../pages/modal/modal';
-import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
+import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SelectSearchableModule } from 'ionic-select-searchable';
-import { PortService } from '../services';
 import { PortsComponent } from '../components/ports/ports';
 import { PortsItemTemplateDirective } from '../components/ports/ports-item-template';
-import { PortsValueTemplateDirective } from '../components/ports/ports-value-template';
 import { PortsTitleTemplateDirective } from '../components/ports/ports-title-template';
+import { PortsValueTemplateDirective } from '../components/ports/ports-value-template';
+import { FindPortsPage } from '../pages/find-ports/find-ports';
+import { HomePage } from '../pages/home/home';
+import { ModalPage } from '../pages/modal/modal';
+import { PortService } from '../services';
+import { AppComponent } from './app.component';
 
-let components = [AppComponent, HomePage, ModalPage, PortsComponent];
+let components = [AppComponent, HomePage, ModalPage, FindPortsPage, PortsComponent];
 
 @NgModule({
     declarations: [...components, PortsItemTemplateDirective, PortsValueTemplateDirective, PortsTitleTemplateDirective],

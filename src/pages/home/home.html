@@ -14,10 +14,10 @@
                     Ports
                 </ng-template>
                 <ng-template portsItemTemplate let-port="item">
-                    {{port.name}} ({{port.country}})
+                    {{port.name}} ({{port.country.name}})
                 </ng-template>
                 <ng-template portsValueTemplate let-port="value">
-                    {{port.name}} ({{port.country}})
+                    {{port.name}} ({{port.country.name}})
                 </ng-template>
             </ports>
         </ion-item>
@@ -146,7 +146,7 @@
                     Port
                 </ng-template>
                 <ng-template selectSearchableItemTemplate let-port="item">
-                    {{port.name}} ({{port.country}})
+                    {{port.name}} ({{port.country.name}})
                 </ng-template>
             </select-searchable>
         </ion-item>
@@ -168,7 +168,7 @@
                     Port
                 </ng-template>
                 <ng-template selectSearchableValueTemplate let-port="value">
-                    {{port.name}} ({{port.country}})
+                    {{port.name}} ({{port.country.name}})
                 </ng-template>
             </select-searchable>
         </ion-item>
@@ -192,7 +192,7 @@
                 </ng-template>
                 <ng-template selectSearchableValueTemplate let-ports="value">
                     <div class="select-searchable-value-item" *ngFor="let port of ports">
-                        {{port.name}} ({{port.country}})
+                        {{port.name}} ({{port.country.name}})
                     </div>
                 </ng-template>
             </select-searchable>
